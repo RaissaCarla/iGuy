@@ -57,6 +57,12 @@ CREATE TABLE categorias_servico (
     preco_base_hora DECIMAL(10,2) NOT NULL CHECK (preco_base_hora >= 0)
 );
 
+INSERT INTO categorias_servico (titulo, preco_base_hora) VALUES
+('Companhia', 30.00),
+('Acompanhamento médico', 40.00),
+('Apoio burocrático', 35.00),
+('Serviços do dia a dia', 25.00);
+
 CREATE TABLE selos_certificacao (
     id_selo INT AUTO_INCREMENT PRIMARY KEY,
     nome_selo VARCHAR(100) NOT NULL UNIQUE
@@ -123,6 +129,7 @@ CREATE TABLE avaliacoes (
     FOREIGN KEY (id_avaliador) REFERENCES usuarios(id_usuario),
     FOREIGN KEY (id_avaliado) REFERENCES usuarios(id_usuario)
 );
+
 
 CREATE INDEX idx_avaliacoes_avaliado ON avaliacoes(id_avaliado);
 
